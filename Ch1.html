@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	/*I.Minimize code duplication*/
+	.btn{
+		padding: 6px 16px;
+		border: 1px solid #446d88;
+		background: #58a linear-gradient(#77a0bb, #58a);
+		border-radius: 4px;
+		box-shadow: 0 1px 5px gray;
+		color:white;
+		text-shadow: 0 -1px 1px #335166;
+		font-size: 20px;
+		line-height: 30px; /*it will change too if font-size change*/	
+	}
+	.btn_update{
+		padding: .3em .8em;
+		border: 1px solid rgba(0,0,0,.1);
+		background: #58a linear-gradient(hsla(0,0%,100%,.2),transparent);
+		border-radius: .2em;
+		box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+		color:white;
+		text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+		font-size: 125%; /*supposed font-size for parent is 16px*/	
+		line-height: 1.5; 
+	}
+	.btn_update.cancel{
+		background-color:#c00;
+	}
+	.btn_update.ok{
+		background-color:#6b0;
+	}
+	/*tips:
+		1.Code easy to maintain vs. Less code
+		2.currentColor
+		hr{height: .5em; background: currentColor;}
+		3.Inheritance
+		input, select, button { font: inherit; }
+	*/
+	/*II. trust your eyes, not the number*/
+	/*III. about responsive web pages design
+		tips for avoid use media query unnecessarily
+		- use percentage length instead of fixed length.(if not ,please try to use unit related with viewport-vw、vh、vmin、vmax)
+		- use max-width instaed of width when you need get fixed width in a larger screen resulotion, because it can adjust smaller screen resulotion instead of using media query.
+		- background-size:cover can be done for if background image need to cover with one container completely whatever changeable from its size;
+		- Let width of viewport decide column-count when using determinant as layout with images or other elements. Flexbox or display:inline-block add some common word wrap can implement it;
+		- use multi-columns, point column-width instead of column-count so that it can be shown single column layout in a smaller screen.
+	*/
+	/*IV.Intelligent use logogram*/
+	/*http://www.myth.io/*/
+	</style>
+</head>
+<body>
+	<div class="container">
+		<button class="btn">Yes!</button>
+		<button class="btn_update">Yes!</button>
+		<button class="btn_update cancel">Yes!</button>
+		<button class="btn_update ok">Yes!</button>
+	</div>
+</body>
+</html>
