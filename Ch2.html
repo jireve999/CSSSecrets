@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ch2 background & border</title>
+	<style type="text/css">
+	
+	body {
+		background: url('http://csssecrets.io/images/stone-art.jpg');
+	}
+	.translucent{
+		border: 10px solid hsla(0,0%,100%,.5);
+		background: white;
+		background-clip: padding-box;
+		
+		/* styling */
+		max-width: 20em;
+		padding: 2em;
+		margin: 2em auto 0;
+		font: 100%/1.5 sans-serif;
+	}
+	/*http://play.csssecrets.io/translucent-borders*/
+	.multiple-borders{
+		width: 100px;
+		height: 60px;
+		margin: 25px;
+		background: yellowgreen;
+		/*box-shadow*/
+		box-shadow: 0 0 0 10px #655,
+	            	0 0 0 15px deeppink,
+	            	0 2px 5px 15px rgba(0,0,0,.6);
+	    /*outline*/
+	    /*border:10px solid #655;
+	    outline:5px solid deeppink;*/
+	}
+	/*http://play.csssecrets.io/multiple-borders*/
+	.extended-bgpos{
+		background: url(http://csssecrets.io/images/code-pirate.svg)
+	            	no-repeat bottom right #58a;
+		/*background-position: right 20px bottom 10px;
+		background-position: calc(100% - 20px) calc(100% - 10px);*/
+		background-origin:content-box;
+		
+		/* Styling */
+		max-width: 10em;
+		min-height: 5em;
+		padding: 10px;
+		color: white;
+		font: 100%/1 sans-serif;
+	}
+	/*http://play.csssecrets.io/extended-bg-position
+	  http://play.csssecrets.io/background-position-calc
+	*/
+	.inner-rounding{
+		outline: .6em solid #655;
+		box-shadow: 0 0 0 .4em #655; /* todo calculate max of this */
+
+		/* todo calculate max of this */
+		max-width: 10em;
+		border-radius: .8em;
+		padding: 1em;
+		margin: 1em;
+		background: tan;
+		font: 100%/1.5 sans-serif;
+	}
+	/*http://play.csssecrets.io/inner-rounding*/
+	</style>
+</head>
+<body>
+	<div class="translucent">
+		Can I haz semi-transparent borders?Pretty please?
+	</div>
+	<div class="multiple-borders"></div>
+	<div class="extended-bgpos">Code Pirate</div>
+	<div class="inner-rounding">I have a nice subtle inner rounding, don’t I look pretty?</div>
+</body>
+</html>
