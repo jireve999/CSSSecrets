@@ -8,6 +8,11 @@
 	body {
 		background: url('http://csssecrets.io/images/stone-art.jpg');
 	}
+	.ib{
+		display: inline-block;
+		width:400px;
+		height:200px;
+	}
 	.translucent{
 		border: 10px solid hsla(0,0%,100%,.5);
 		background: white;
@@ -20,6 +25,7 @@
 		font: 100%/1.5 sans-serif;
 	}
 	/*http://play.csssecrets.io/translucent-borders*/
+
 	.multiple-borders{
 		width: 100px;
 		height: 60px;
@@ -34,6 +40,7 @@
 	    outline:5px solid deeppink;*/
 	}
 	/*http://play.csssecrets.io/multiple-borders*/
+
 	.extended-bgpos{
 		background: url(http://csssecrets.io/images/code-pirate.svg)
 	            	no-repeat bottom right #58a;
@@ -48,9 +55,10 @@
 		color: white;
 		font: 100%/1 sans-serif;
 	}
-	/*http://play.csssecrets.io/extended-bg-position
-	  http://play.csssecrets.io/background-position-calc
-	*/
+	/*http://play.csssecrets.io/extended-bg-position*/
+	/*http://play.csssecrets.io/background-origin*/
+	/*http://play.csssecrets.io/background-position-calc*/
+
 	.inner-rounding{
 		outline: .6em solid #655;
 		box-shadow: 0 0 0 .4em #655; /* todo calculate max of this */
@@ -64,27 +72,19 @@
 		font: 100%/1.5 sans-serif;
 	}
 	/*http://play.csssecrets.io/inner-rounding*/
+
 	.horizontal-stripes{
-		display: inline-block;
-		width:400px;
-		height:200px;
 		background: linear-gradient(#fb3 50%, #58a 0);
 		/*background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);*/
 		background-size: 100% 30px;
 	}
 	/*http://play.csssecrets.io/horizontal-stripes*/
 	.vertical-stripes{
-		display: inline-block;
-		width:400px;
-		height:200px;
 		background: linear-gradient(to right, #fb3 50%, #58a 0); /*90deg*/
 		background-size: 30px 100%;
 	}
 	/*play.csssecrets.io/vertical-stripes*/
 	.diagonal-stripes{
-		display: inline-block;
-		width:400px;
-		height:200px;
 		/*background: linear-gradient(45deg,  
 			        #fb3 50%, #58a 0);  /*failure*/
 		/*background-size:30px 30px;*/
@@ -95,9 +95,6 @@
 	}
 	/*play.csssecrets.io/diagonal-stripes*/
 	.diagonal-stripes-60deg{
-		display: inline-block;
-		width:400px;
-		height:200px;
 		background: repeating-linear-gradient(60deg, 
 	              #fb3, #fb3 15px,
 	              #58a 0, #58a 30px);
@@ -105,9 +102,6 @@
 	}
 	/*http://play.csssecrets.io/diagonal-stripes-60deg*/
 	.subtle-stripes{
-		display: inline-block;
-		width:400px;
-		height:200px;
 		background: #58a;
 		background-image: repeating-linear-gradient(30deg, 
               hsla(0,0%,100%,.1), hsla(0,0%,100%,.1) 15px,
@@ -119,27 +113,66 @@
 		 * Test: color stops with two locations
 		 * PASS if green stripes, FAIL if red
 		 */
-		display: inline-block;
-		width:400px;
-		min-height:200px;
 		background: red;
 		background: repeating-linear-gradient(-45deg, limegreen 0 20px, green 20px 60px);
 	}
 	/*http://play.csssecrets.io/test-color-stop-2positions*/
+
+	.blueprint{
+		background: #58a;
+		background-image: linear-gradient(white 2px, transparent 0),
+		                  linear-gradient(90deg, white 2px, transparent 0),
+		                  linear-gradient(hsla(0,0%,100%,.3) 1px, transparent 0),
+		                  linear-gradient(90deg, hsla(0,0%,100%,.3) 1px, transparent 0);
+		background-size: 50px 50px, 50px 50px,
+		                 10px 10px, 10px 10px;
+	}
+	.polka{
+		background: #655;
+		background-image: radial-gradient(tan 20%, transparent 0),
+		                  radial-gradient(tan 20%, transparent 0);
+		background-size: 30px 30px;
+		background-position: 0 0, 15px 15px;
+	}
+	.checkerboard{
+		background: #eee;
+		background-image: 
+			linear-gradient(45deg, rgba(0,0,0,.25) 25%, transparent 0, transparent 75%, rgba(0,0,0,.25) 0),
+			linear-gradient(45deg, rgba(0,0,0,.25) 25%, transparent 0, transparent 75%, rgba(0,0,0,.25) 0);
+		background-position: 0 0, 15px 15px;
+		background-size: 30px 30px;
+	}
+	.checkerboard-svg{
+		background: #eee url('data:image/svg+xml,\
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill-opacity=".25" >\
+            <rect x="50" width="50" height="50" />\
+            <rect y="50" width="50" height="50" />\
+            </svg>');
+		background-size: 30px 30px;
+	}
 	</style>
 </head>
 <body>
 	<div class="translucent">
 		Can I haz semi-transparent borders?Pretty please?
 	</div>
-	<div class="multiple-borders"></div>
-	<div class="extended-bgpos">Code Pirate</div>
+
+	<div class="multiple-borders "></div>
+
+	<div class="extended-bgpos background-origin background-position-calc ">Code Pirate</div>
+
 	<div class="inner-rounding">I have a nice subtle inner rounding, don’t I look pretty?</div>
-	<div class="horizontal-stripes"></div>
-	<div class="vertical-stripes"></div>
-	<div class="diagonal-stripes"></div>
-	<div class="diagonal-stripes-60deg"></div>
-	<div class="subtle-stripes"></div>
-	<div class="test-color-stop-2positions"></div>
+
+	<div class="horizontal-stripes ib"></div>
+	<div class="vertical-stripes ib"></div>
+	<div class="diagonal-stripes ib"></div>
+	<div class="diagonal-stripes-60deg ib"></div>
+	<div class="subtle-stripes ib"></div>
+	<div class="test-color-stop-2positions ib"></div>
+
+	<div class="blueprint ib"></div>
+	<div class="polka ib"></div>
+	<div class="checkerboard ib"></div>
+	<div class="checkerboard-svg ib"></div>
 </body>
 </html>
