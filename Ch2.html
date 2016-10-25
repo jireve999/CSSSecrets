@@ -127,6 +127,7 @@
 		background-size: 50px 50px, 50px 50px,
 		                 10px 10px, 10px 10px;
 	}
+	/*http://play.csssecrets.io/blueprint*/
 	.polka{
 		background: #655;
 		background-image: radial-gradient(tan 20%, transparent 0),
@@ -134,6 +135,7 @@
 		background-size: 30px 30px;
 		background-position: 0 0, 15px 15px;
 	}
+	/*http://play.csssecrets.io/polka*/
 	.checkerboard{
 		background: #eee;
 		background-image: 
@@ -142,6 +144,7 @@
 		background-position: 0 0, 15px 15px;
 		background-size: 30px 30px;
 	}
+	/*http://play.csssecrets.io/checkerboard*/
 	.checkerboard-svg{
 		background: #eee url('data:image/svg+xml,\
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill-opacity=".25" >\
@@ -150,6 +153,89 @@
             </svg>');
 		background-size: 30px 30px;
 	}
+	/*http://play.csssecrets.io/checkerboard-svg*/
+
+	.cicada-stripes{
+		background: hsl(20, 40%, 90%);
+		background-image: 
+			linear-gradient(90deg, #fb3 11px, transparent 0),
+			linear-gradient(90deg, #ab4 23px, transparent 0),
+			linear-gradient(90deg, #655 23px, transparent 0);
+		background-size: 83px 100%, 61px 100%, 41px 100%;
+	}
+	/*http://play.csssecrets.io/cicada-stripes*/
+
+	.border-image{
+		border: 40px solid transparent;
+		border-image: 33.334% url('data:image/svg+xml,<svg xmlns="http:%2F%2Fwww.w3.org%2F2000%2Fsvg" width="30" height="30"> \
+          <circle cx="5" cy="5" r="5" fill="%23ab4"%2F><circle cx="15" cy="5" r="5" fill=" %23655"%2F> \
+          <circle cx="25" cy="5" r="5" fill="%23e07"%2F><circle cx="5" cy="15" r="5" fill=" %23655"%2F> \
+          <circle cx="15" cy="15" r="5" fill="hsl(15, 25%, 75%)"%2F> \
+          <circle cx="25" cy="15" r="5" fill=" %23655"%2F><circle cx="5" cy="25" r="5" fill="%23fb3"%2F> \
+          <circle cx="15" cy="25" r="5" fill=" %23655"%2F><circle cx="25" cy="25" r="5" fill="%2358a"%2F><%2Fsvg>');
+		padding: 1em;
+		max-width: 20em;
+		font: 130%/1.6 Baskerville, Palatino, serif;
+	}
+	.border-image:nth-child(2){
+		margin-top: 1em;
+		border-image-repeat: round;
+	}
+	/*http://play.csssecrets.io/border-image*/
+	.continuous-image-borders{
+		border: 1em solid transparent;
+		background: linear-gradient(white, white) padding-box,
+		            url(http://csssecrets.io/images/stone-art.jpg) border-box  0 / cover;
+
+		/* Styling & enable resize */
+		width: 21em;
+		padding: 1em;
+		overflow: hidden;
+		resize: both;
+		font: 100%/1.6 Baskerville, Palatino, serif;
+	}
+	/*http://play.csssecrets.io/continuous-image-borders*/
+	.vintage-envelope{
+		padding: 1em;
+		border: 1em solid transparent;
+		background: linear-gradient(white, white) padding-box,
+		            repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 0, transparent 25%, 
+		              #58a 0, #58a 37.5%, transparent 0, transparent 50%) 0 / 6em 6em;
+		
+		max-width: 20em;
+		font: 100%/1.6 Baskerville, Palatino, serif;
+	}
+	/*http://play.csssecrets.io/vintage-envelope*/
+	.vintage-envelope-border-image{
+		padding: 1em;
+		border: 1em solid transparent;
+		background: linear-gradient(white, white) padding-box,
+		            repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 0, transparent 25%, 
+		              #58a 0, #58a 37.5%, transparent 0, transparent 50%) 0 / 6em 6em;
+
+		max-width: 20em;
+		font: 100%/1.6 Baskerville, Palatino, serif;
+	}
+	/*http://play.csssecrets.io/vintage-envelope-border-image*/
+	.marching-ants{
+		padding: 1em;
+		border: 1px solid transparent;
+		background: linear-gradient(white, white) padding-box,
+		            repeating-linear-gradient(-45deg, black 0, black 25%, transparent 0, transparent 50%) 0 / .6em .6em;
+		animation: ants 12s linear infinite;
+		
+		max-width: 20em;
+		font: 100%/1.6 Baskerville, Palatino, serif;
+	}
+	/*http://play.csssecrets.io/marching-ants*/
+	.footnote{
+		color: #fff;
+		border-top: .15em solid transparent;
+		border-image: 100% 0 0 linear-gradient(90deg, currentColor 4em, transparent 0);
+		padding-top: .5em;
+		font: 220%/1.4 Baskerville, Palatino, serif;
+	}
+	/*http://play.csssecrets.io/footnote*/
 	</style>
 </head>
 <body>
@@ -174,5 +260,15 @@
 	<div class="polka ib"></div>
 	<div class="checkerboard ib"></div>
 	<div class="checkerboard-svg ib"></div>
+
+	<div class="cicada-stripes ib"></div>
+
+	<div class="border-image ib">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone. </div>
+	<div class="border-image ib">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone. </div>
+	<div class="continuous-image-borders ib">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone. </div>
+	<div class="vintage-envelope ib">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone.</div>
+	<div class="vintage-envelope-border-image ib">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone.</div>
+	<div class="marching-ants ib">Bacon ipsum dolor amet eu adipisicing elit tongue ground round ex fatback proident kielbasa ham hock. Sausage beef beef ribs aliquip t-bone mollit. Quis beef tri-tip sunt, cupim ut magna salami t-bone.</div>
+	<div class="footnote"><sup>1</sup> This is a footnote.</div>
 </body>
 </html>
