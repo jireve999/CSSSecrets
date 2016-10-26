@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ch3 shape</title>
+	<style>
+	/**border-radius
+		border-top-left-radius
+		border-top-right-radius
+		border-bottom-right-radius
+		border-bottom-left-radius
+		border-radius: top-left top-right bottom-right bottom-left;       four
+		border-radius: top-left (top-right & bottom-left) bottom-right;   three
+		border-radius: (top-lfet & bottom-right) (top-right & bottom-left);  two
+		border-radius: (top-left & top-right & bottom-right & bottom-left);  one
+	*/
+
+	.ellipse{
+		width: 16em;
+		height: 10em;
+		background: #fb3;
+		border-radius: 50%;
+		/*border-radius: 100px / 75px; 水平和垂直半径*/
+	}
+	/*http://play.csssecrets.io/ellipse*/
+	.half-ellipse{
+		display: inline-block;
+		width: 16em;
+		height: 10em;
+		margin: 1em;
+		background: #fb3;
+		border-radius: 50% / 100% 100% 0 0;
+	}
+	.half-ellipse:nth-of-type(2) { border-radius: 50% / 0 0 100% 100%; }
+	.half-ellipse:nth-of-type(3) { border-radius: 100% 0 0 100% / 50%; }
+	.half-ellipse:nth-of-type(4) { border-radius: 0 100% 100% 0 / 50%; }
+	/*http://play.csssecrets.io/half-ellipse*/
+	.quarter-ellipse{
+		display: inline-block;
+		width: 16em;
+		height: 10em;
+		margin: 1em;
+		background: #fb3;
+		border-radius: 100% 0 0 0;
+		/*border-radius: 0 100% 0 0;
+		border-radius: 0 0 100% 0;
+		border-radius: 0 0 0 100%;*/
+	}
+	/*http://play.csssecrets.io/quarter-ellipse*/
+	
+	.parallelograms { transform: skewX(45deg); }
+	.parallelograms > div { transform: skewX(-45deg); } /*对内容再应用一次反向的skew()变形，从而抵消容器的变形效果*/
+	.parallelograms {
+		display: inline-block;
+		padding: .5em 1em;
+		border: 0; margin: .5em;
+		background: #58a;
+		color: white;
+		text-transform: uppercase;
+		text-decoration: none;
+		font: bold 200%/1 sans-serif;
+	}
+	/*http://play.csssecrets.io/parallelograms*/
+	.parallelograms-pseudo {
+		position: relative;
+		display: inline-block;
+		padding: .5em 1em;
+		border: 0; margin: .5em;
+		background: transparent;
+		color: white;
+		text-transform: uppercase;
+		text-decoration: none;
+		font: bold 200%/1 sans-serif;
+	}
+	.parallelograms-pseudo::before {
+		content: ''; /* To generate the box */
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -1;
+		background: #58a;
+		transform: skew(45deg);
+	}	
+	/*http://play.csssecrets.io/parallelograms-pseudo*/
+	</style>
+</head>
+<body>
+	<div class="ellipse"></div>
+	<div class="half-ellipse"></div>
+	<div class="half-ellipse"></div>
+	<div class="half-ellipse"></div>
+	<div class="half-ellipse"></div>
+	<div class="quarter-ellipse"></div>
+	
+	<a href="#yolo" class="parallelograms"><div>Click me</div></a>
+	<button class="parallelograms"><div>Click me</div></button>
+
+	<a href="#yolo" class="parallelograms-pseudo"><div>Click me</div></a>
+	<button class="parallelograms-pseudo"><div>Click me</div></button>
+
+</body>
+</html>
