@@ -182,6 +182,169 @@
 		font: 150%/1.6 Baskerville, Palatino, serif;
 	}
 	/*http://play.csssecrets.io/bevel-corners-clipped*/
+	.trapezoid-tabs{
+		padding: 40px;
+		font: 130%/2 Frutiger LT Std, sans-serif;
+	}
+	nav {
+		position: relative;
+		z-index: 1;
+		padding-left: 1em;
+	}
+	nav > a {
+		position: relative;
+		display: inline-block;
+		padding: .3em 1em 0;
+		color: inherit;
+		text-decoration: none;
+		margin: 0 -.3em;
+	} 
+	nav > a::before,
+	main {
+		border: .1em solid rgba(0,0,0,.4);
+	}
+	nav a::before {
+		content: ''; /* To generate the box */
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -1;
+		border-bottom: none;
+		border-radius: .5em .5em 0 0;
+		background: #ccc linear-gradient(hsla(0,0%,100%,.6), hsla(0,0%,100%,0));
+		box-shadow: 0 .15em white inset;
+		transform: scale(1.1, 1.3) perspective(.5em) rotateX(5deg);
+		transform-origin: bottom;
+	}
+	nav a.selected { z-index: 2;}
+	nav a.selected::before {
+		background-color: #eee;
+		margin-bottom: -.08em;
+	}
+	main {
+		display: block;
+		margin-bottom: 1em;
+		background: #eee;
+		padding: 1em;
+		border-radius: .15em;
+	}
+	nav.left > a::before {
+		transform: scale(1.2, 1.3) perspective(.5em) rotateX(5deg);
+		transform-origin: bottom left;
+	}
+	nav.right { padding-left: 2em; }
+	nav.right > a::before {
+		transform: scale(1.2, 1.3) perspective(.5em) rotateX(5deg);
+		transform-origin: bottom right;
+	}
+	/*http://play.csssecrets.io/trapezoid-tabs*/
+
+	.pie-animated {
+		width: 100px; height: 100px;
+		border-radius: 50%;
+		background: yellowgreen;
+		background-image: linear-gradient(to right, transparent 50%, currentColor 0);
+		color: #655;
+	}
+
+	.pie-animated::before {
+		content: '';
+		display: block;
+		margin-left: 50%;
+		height: 100%;
+		border-radius: 0 100% 100% 0 / 50%;
+		background-color: inherit;
+		transform-origin: left;
+		animation: spin 3s linear infinite, bg 6s step-end infinite;
+	}
+
+	@keyframes spin {
+		to { transform: rotate(.5turn); }
+	}
+	@keyframes bg {
+		50% { background: currentColor; }
+	}
+	/*http://play.csssecrets.io/pie-animated*/
+	.pie {
+		display: inline-block;
+		position: relative;
+		width: 100px;
+		line-height: 100px;
+		border-radius: 50%;
+		background: yellowgreen;
+		background-image: linear-gradient(to right, transparent 50%, #655 0);
+		color: transparent;
+		text-align: center;
+	}
+
+	@keyframes spin {
+		to { transform: rotate(.5turn); }
+	}
+	@keyframes bg {
+		50% { background: #655; }
+	}   
+
+	.pie::before {
+		content: '';
+		position: absolute;
+		top: 0; left: 50%;
+		width: 50%; height: 100%;
+		border-radius: 0 100% 100% 0 / 50%;
+		background-color: inherit;
+		transform-origin: left;
+		animation: spin 50s linear infinite, bg 100s step-end infinite;
+		animation-play-state: paused;
+		animation-delay: inherit;
+	}
+	/*http://play.csssecrets.io/pie-static*/
+	/**
+	 * Static interpolation via paused animations
+	 * This technique becomes more useful if you need to interpolate more than 1 properties, and/or if you need multiple values in the spectrum
+	 * Currently works in every modern browser except Safari
+	 */
+	@keyframes foo {
+		from { background: red }
+		to { background: yellowgreen }
+	}
+
+	div.static-interpolation {
+		display: inline-block;
+		width: 100px; height: 100px;
+		
+		animation: foo 1s both linear;
+		animation-play-state: paused;
+	}
+
+	div.static-interpolation:nth-of-type(2) { animation-delay: -.2s; }
+	div.static-interpolation:nth-of-type(3) { animation-delay: -.4s; }
+	div.static-interpolation:nth-of-type(4) { animation-delay: -.6s; }
+	div.static-interpolation:nth-of-type(5) { animation-delay: -.8s; }
+	div.static-interpolation:nth-of-type(6) { animation-delay: -1s; }
+	/*http://play.csssecrets.io/static-interpolation*/
+	.pie-svg {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		margin: 10px;
+		transform: rotate(-90deg);
+	}
+
+	svg {
+		background: yellowgreen;
+		border-radius: 50%;
+	}
+
+	circle {
+		fill: yellowgreen;
+		stroke: #655;
+		stroke-width: 32;
+	}
+
+	@keyframes grow { to { stroke-dasharray: 100 100 } }
+
+	.pie-svg.animated circle {
+		animation: grow 2s infinite linear;
+	}
+	/*http://play.csssecrets.io/pie-svg*/
 	</style>
 </head>
 <body>
@@ -212,5 +375,89 @@
 	<div class="scoop-corners">Hey, focus on scoop-corners! You’re supposed to be looking at my corners, not reading my text. The text is just placeholder!</div>
 	<div class="bevel-corners">Hey, focus on bevel-corners! You’re supposed to be looking at my corners, not reading my text. The text is just placeholder!</div>
 	<div class="bevel-corners-clipped">Hey, focus on bevel-corners-clipped! You’re supposed to be looking at my corners, not reading my text. The text is just placeholder!</div>
+
+	<div class="trapezoid-tabs">
+		<nav>
+			<a href="#">Home</a>
+			<a href="#" class="selected">Projects</a>
+			<a href="#">About</a>
+		</nav>
+		<main>
+			Content area
+		</main>
+
+		<nav class="left">
+			<a href="#">Home</a>
+			<a href="#" class="selected">Projects</a>
+			<a href="#">About</a>
+		</nav>
+		<main>
+			Content area
+		</main>
+
+		<nav class="right">
+			<a href="#">Home</a>
+			<a href="#" class="selected">Projects</a>
+			<a href="#">About</a>
+		</nav>
+		<main>
+			Content area
+		</main>
+	</div>
+
+	<div class="pie-animated"></div>
+	<div class="pie-static">
+		<div class="pie">0%</div>
+		<div class="pie">20%</div>
+		<div class="pie">40%</div>
+		<div class="pie">60%</div>
+		<div class="pie">80%</div>
+	</div>
+	<div id="static-interpolation">
+		<div class="static-interpolation"></div>
+		<div class="static-interpolation"></div>
+		<div class="static-interpolation"></div>
+		<div class="static-interpolation"></div>
+		<div class="static-interpolation"></div>
+		<div class="static-interpolation"></div>
+	</div>
+	<div id="pie-svg">
+		<div class="pie-svg">20%</div>
+		<div class="pie-svg">60%</div>
+		<div class="pie-svg animated">0%</div>
+	</div>
+	<script type="text/javascript">
+		function $$(selector, context) {
+			context = context || document;
+			var elements = context.querySelectorAll(selector);
+			return Array.prototype.slice.call(elements);
+		}
+		//write animation-delay to inline styles
+		$$('.pie').forEach(function(pie) {
+			var p = pie.textContent;
+			pie.style.animationDelay = '-' + parseFloat(p) + 's';
+		});
+
+		//generate a SVG image in pie-svg element
+		 $$('.pie-svg').forEach(function(pie) {
+			var p = parseFloat(pie.textContent);
+			var NS = "http://www.w3.org/2000/svg";
+			var svg = document.createElementNS(NS, "svg");
+			var circle = document.createElementNS(NS, "circle");
+			var title = document.createElementNS(NS, "title");
+			
+			circle.setAttribute("r", 16);
+			circle.setAttribute("cx", 16);
+			circle.setAttribute("cy", 16);
+			circle.setAttribute("stroke-dasharray", p + " 100");
+			
+			svg.setAttribute("viewBox", "0 0 32 32");
+			title.textContent = pie.textContent;
+			pie.textContent = '';
+			svg.appendChild(title);
+			svg.appendChild(circle);
+			pie.appendChild(svg);
+		});
+	</script>
 </body>
 </html>
