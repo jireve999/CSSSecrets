@@ -78,6 +78,36 @@
 		background-clip: padding-box;
 	}
 	/*http://play.csssecrets.io/drop-shadow*/
+
+	/**
+	 * Color tinting — with filters
+	 */
+	img.color-tint-filter {
+		max-width: 640px;
+		transition: 1s filter, 1s -webkit-filter;
+		-webkit-filter: sepia() saturate(4) hue-rotate(295deg);
+		filter: sepia() saturate(4) hue-rotate(295deg);
+	}
+	img.color-tint-filter:hover,
+	img.color-tint-filter:focus {
+		-webkit-filter: none;
+		filter: none;
+	}
+	/*http://play.csssecrets.io/color-tint-filter*/
+	/**
+	 * Color tinting — with blending modes
+	 */
+	.color-tint {
+		width: 640px; height: 440px;
+		background-size: cover;
+		background-color: hsl(335, 100%, 50%);
+		background-blend-mode: luminosity;
+		transition: .5s background-color;
+	}
+	.color-tint:hover {
+		background-color: transparent;
+	}
+	/*http://play.csssecrets.io/color-tint*/
 	</style>
 </head>
 <body>
@@ -88,5 +118,8 @@
 	<div class="drop-shadow speech">Speech bubble</div>
 	<div class="drop-shadow dotted">Dotted border</div>
 	<div class="drop-shadow cutout">Cutout corners</div>
+
+	<img src="http://csssecrets.io/images/tiger.jpg" class="color-tint-filter">
+	<div style="background-image:url(http://csssecrets.io/images/tiger.jpg)" class="color-tint"></div>
 </body>
 </html>
