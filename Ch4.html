@@ -108,6 +108,46 @@
 		background-color: transparent;
 	}
 	/*http://play.csssecrets.io/color-tint*/
+
+	.folder-corner{
+		width: 12em;
+		background: #58a; /* Fallback style*/
+		background:
+			linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,.4) 0) 100% 0 no-repeat,
+			linear-gradient(-135deg, transparent 1.5em, #58a 0);
+		background-size: 2em 2em, auto;
+		
+		padding: 2em;
+		color: white;
+		font: 100%/1.6 Baskerville, Palatino, serif;
+		}
+	/*http://play.csssecrets.io/folded-corner*/
+	/**
+	 * Folded corner effect — at an angle
+	 */
+	.folded-corner-realistic {
+		position: relative;
+		width: 12em;
+		background: #58a; /* Fallback */
+		background: linear-gradient(-150deg, transparent 1.5em, #58a 0);
+		padding: 2em;
+		color: white;
+		font: 100%/1.6 Baskerville, Palatino, serif;
+		border-radius: .5em;
+	}
+	.folded-corner-realistic::before {
+		content: '';
+		position: absolute;
+		top: 0; right: 0;
+		width: 1.73em; height: 3em;
+		background: linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,.2) 0, rgba(0,0,0,.4)) 100% 0 no-repeat;
+		transform: translateY(-1.3em) rotate(-30deg);
+		transform-origin: bottom right;
+		border-bottom-left-radius: .5em;
+		box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15)
+	}
+	/*http://play.csssecrets.io/folded-corner-realistic*/
+	/*http://play.csssecrets.io/folded-corner-mixin*/
 	</style>
 </head>
 <body>
@@ -121,5 +161,9 @@
 
 	<img src="http://csssecrets.io/images/tiger.jpg" class="color-tint-filter">
 	<div style="background-image:url(http://csssecrets.io/images/tiger.jpg)" class="color-tint"></div>
+
+	<div class="folded-corner">“The only way to get rid of a temptation is to yield to it.” — Oscar Wilde, The Picture of Dorian Gray</div>
+	<div class="folded-corner-realistic">“The only way to get rid of a temptation is to yield to it.” — Oscar Wilde, The Picture of Dorian Gray</div>
+	<div class="folded-corner-realistic">see http://codepen.io/jireve999/pen/MbbWZM</div>
 </body>
 </html>
