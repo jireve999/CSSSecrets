@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ch5 typography</title>
+	<style type="text/css">
+	.hyphenation{
+		width: 8.7em;
+		font: 180%/1.4 Baskerville, serif;
+		text-align: justify;
+		hyphens: auto;
+	}
+	/*http://play.csssecrets.io/hyphenation*/
+
+	dt, dd {
+	display: inline;
+	margin: 0;
+	}
+	dd {
+		font-weight: 600;
+	}
+	dd + dt::before {
+		content: "\A";
+		white-space: pre;
+	}
+	dd + dd::before {
+		content: ', ';
+		font-weight: normal;
+		margin-left: -.25em;
+	}
+	/*http://play.csssecrets.io/line-breaks*/
+
+	/**
+	 * Zebra striped text lines
+	 */
+	pre { 
+	padding: .5em;
+	line-height: 1.5;
+	background: hsl(20, 50%, 95%);
+	background-image: linear-gradient(
+	                  rgba(120,0,0,.1) 50%, transparent 0);
+	background-size: auto 3em;
+	background-origin: content-box;
+	font-family: Consolas, Monaco, monospace;
+	}
+	code { font: inherit }
+	/*http://play.csssecrets.io/zebra-lines*/
+	</style>
+</head>
+<body>
+	<div class="hyphenation">
+		“The only way to get rid of a temptation is to yield to it.”
+	</div>
+
+	<div class="line-breaks">
+		<dl>
+		<dt>Name:</dt>
+		<dd>Lea Verou</dd>
+		
+		<dt>Email:</dt>
+		<dd>lea@verou.me</dd>
+		<dd>leaverou@mit.edu</dd>
+		
+		<dt>Location:</dt>
+		<dd>Earth</dd>
+	</div>
+
+	<div class="zebra-lines">
+		<pre><code>while (true) {
+			var d = new Date();
+			if (d.getDate()==1 &amp;&amp;
+			    d.getMonth()==3) {
+				alert("TROLOLOL");
+			}
+		}</code></pre>
+	</div>
+</dl>
+</body>
+</html>
