@@ -33,18 +33,57 @@
 	/**
 	 * Zebra striped text lines
 	 */
-	pre { 
-	padding: .5em;
-	line-height: 1.5;
-	background: hsl(20, 50%, 95%);
-	background-image: linear-gradient(
-	                  rgba(120,0,0,.1) 50%, transparent 0);
-	background-size: auto 3em;
-	background-origin: content-box;
-	font-family: Consolas, Monaco, monospace;
+	 .zebra-lines pre {
+		padding: .5em;
+		line-height: 1.5;
+		background: hsl(20, 50%, 95%);
+		background-image: linear-gradient(
+		                  rgba(120,0,0,.1) 50%, transparent 0);
+		background-size: auto 3em;
+		background-origin: content-box;
+		font-family: Consolas, Monaco, monospace;
 	}
-	code { font: inherit }
+	.zebra-lines code { font: inherit }
 	/*http://play.csssecrets.io/zebra-lines*/
+
+	/**
+	 * Adjusting tabs
+	 */
+	.tab-size pre { 
+		padding: .5em;
+		line-height: 1.5;
+		background: hsl(20, 50%, 95%);
+		font-family: Consolas, Monaco, monospace;
+	}
+	.tab-size pre:nth-of-type(2) { tab-size: 2 }
+		/*pre:nth-of-type(3) { tab-size: 4 }
+		pre:nth-of-type(4) { tab-size: 0 }
+*/
+	.tab-size code {
+		font: inherit;
+	}
+	/*http://play.csssecrets.io/tab-size*/
+		
+	/**
+	 * Ligatures
+	 */
+	.ligatures{
+		font: 200%/1.6 "Adobe Caslon Pro", Baskerville, serif;
+		font-variant-ligatures: common-ligatures discretionary-ligatures historical-ligatures;
+	}
+	/*http://play.csssecrets.io/ligatures*/
+
+	/**
+	 * Fancy Ampersands
+	 */
+	@font-face {
+		font-family: Ampersand;
+		src: local('Baskerville-Italic'), local('GoudyOldStyleT-Italic'), local('Garamond-Italic'), local('Palatino-Italic');
+		unicode-range: U+26;
+	}
+	.ampersands h1 {
+		font-family: Ampersand, Helvetica, sans-serif;
+	}
 	</style>
 </head>
 <body>
@@ -54,18 +93,19 @@
 
 	<div class="line-breaks">
 		<dl>
-		<dt>Name:</dt>
-		<dd>Lea Verou</dd>
-		
-		<dt>Email:</dt>
-		<dd>lea@verou.me</dd>
-		<dd>leaverou@mit.edu</dd>
-		
-		<dt>Location:</dt>
-		<dd>Earth</dd>
+			<dt>Name:</dt>
+			<dd>Lea Verou</dd>
+			
+			<dt>Email:</dt>
+			<dd>lea@verou.me</dd>
+			<dd>leaverou@mit.edu</dd>
+			
+			<dt>Location:</dt>
+			<dd>Earth</dd>
+		</dl>
 	</div>
 
-	<div class="zebra-lines">
+	<div class="zebra-lines">	
 		<pre><code>while (true) {
 			var d = new Date();
 			if (d.getDate()==1 &amp;&amp;
@@ -73,7 +113,36 @@
 				alert("TROLOLOL");
 			}
 		}</code></pre>
+	</div>	
+	
+
+	<div class="tab-size">
+		<pre><code>// Default tab size
+		while (true) {
+			var d = new Date();
+			if (d.getDate()==1 &amp;&amp;
+			    d.getMonth()==3) {
+				alert("TROLOLOL");
+			}
+		}</code></pre>
+
+		<pre><code>// tab-size: 2;
+		while (true) {
+			var d = new Date();
+			if (d.getDate()==1 &amp;&amp;
+			    d.getMonth()==3) {
+				alert("TROLOLOL");
+			}
+		}</code></pre>
 	</div>
-</dl>
+
+	<div class="ligatures">	
+		Common ligatures: fi ff fl ffi ffl <br />
+		Discretionary ligatures: st ct
+	</div>	
+
+	<div class="ampersands">	
+		<h1>HTML & CSS</h1>
+	</div>	
 </body>
 </html>
