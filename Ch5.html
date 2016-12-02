@@ -162,9 +162,21 @@
 	.glow a:hover { text-shadow: 0 0 .1em, 0 0 .3em; }
 	/*http://play.csssecrets.io/glow*/
 
-	
-	/*文字凸起效果
-	http://play.csssecrets.io/extruded*/
+	/**
+	 * Extruded text：文字凸起效果
+	 */
+	.extruded {
+		background: #58a;
+		color: white;
+		text-shadow: 0 1px hsl(0,0%,85%),
+		             0 2px hsl(0,0%,80%),
+		             0 3px hsl(0,0%,75%),
+		             0 4px hsl(0,0%,70%),
+		             0 5px hsl(0,0%,65%),
+		             0 5px 10px black;
+		font: bold 500%/1 Rockwell, serif;
+	}
+	/*http://play.csssecrets.io/extruded*/
 	</style>
 </head>
 <body>
@@ -206,7 +218,6 @@
 				alert("TROLOLOL");
 			}
 		}</code></pre>
-
 		<pre><code>// tab-size: 2;
 		while (true) {
 			var d = new Date();
