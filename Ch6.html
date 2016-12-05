@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ch6 User Experience</title>
+	<style type="text/css">
+	/**
+	 * Indicating disabled state
+	 */
+	:disabled, [disabled], [aria-disabled="true"] {
+		cursor: not-allowed;
+	}
+	/*http://play.csssecrets.io/disabled*/
+
+	/**
+	 * Extending the hit area — with borders
+	 */
+	.hit-area-border{
+		padding: .3em .5em;
+		border: 10px solid transparent;
+		border-radius: 50%;
+		background: #58a;
+		background-clip: padding-box;
+		box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;
+		color: white;
+		font: bold 150%/1 sans-serif;
+		cursor: pointer;
+	}
+	/*http://play.csssecrets.io/hit-area-border*/
+	/**
+	 * Extending the hit area — with generated content
+	 */
+	.hit-area {
+		position: relative;
+		padding: .3em .5em;
+		background: #58a;
+		border-radius: 50%;
+		border: 1px solid rgba(0,0,0,.3);
+		box-shadow:  0 .1em .2em -.05em rgba(0,0,0,.5);
+		color: white;
+		font: bold 150%/1 sans-serif;
+		cursor: pointer;
+	}
+
+	.hit-area:before {
+		content: '';
+		position: absolute;
+		top: -10px; right: -10px;
+		bottom: -10px; left: -10px;
+	}
+	/*http://play.csssecrets.io/hit-area*/
+	</style>
+</head>
+<body>
+	<div class="disabled">
+		<button>Button</button>
+		<button disabled>Disabled button</button>
+	</div>
+
+	<button class="hit-area-border">+</button>
+	<button class="hit-area">+</button>
+</body>
+</html>
